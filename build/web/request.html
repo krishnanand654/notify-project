@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class="subject-container">
+        
+        <form action ="TestServlet" method="POST" enctype="multipart/form-data">
+            <!--<input type="hidden" name="operation" value="insert">-->
+            <div class='post'>
+                <div>
+            <label>Requesting for ?</label>
+                </div>
+            <input class=' post-input' type="text" name="what" />
+            </div>
+            
+            <div class='post'>
+            <div>
+            <label>Description</label>
+            </div>
+                <textarea  class='post-textarea' name="rdesc"/></textarea>
+        </div>
+            
+            
+            <div class='btn-align'>
+             <button class='insert-btn insert-post' type="submit" name="operation"  value="request"/>Request</button>
+              <button class='close-btn' onclick="window.parent.document.querySelector('.popup').remove()"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #ffffff;"></i></button>
+             </div>
+
+        </form>
+        
+     
+        </div>
+    </body>
+    
+    
+            
+             
+    
+</html>

@@ -1,0 +1,117 @@
+<%-- 
+    Document   : folder
+    Created on : Apr 14, 2023, 9:22:00 PM
+    Author     : krish
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, java.util.*" %>
+<%@  include file="navbar.jsp" %>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+     
+    <body class='folder-body'>
+         <div class="folder">
+            <h1>Theory</h1>
+             <div class="card-flex">
+        <% 
+          
+            
+            
+                 
+            String dbUrl = "jdbc:mysql://localhost:3306/test";
+            String dbUser = "root";
+            String dbPassword = "root";
+            String query = "select * from subjects";
+           
+            
+            try {
+   
+
+                // Connect to the database and execute the query
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                if(conn == null){
+                 out.println("not connected");
+                }
+
+                // Output the YouTube video embed code for each video link
+
+            //     RequestDispatcher sidebar = request.getRequestDispatcher("sidebar.jsp");
+            //    sidebar.include(request, response);
+
+                while (rs.next()) {
+                
+                 String subject = rs.getString("subname");     
+                
+                 %>
+     
+
+
+            
+            
+      
+           
+            <div class='card'>
+                
+                <div class='card-content'>
+                   
+                    
+                </div>
+                <form action="module.jsp" method="post">
+                    <input type="hidden" name="type" value="note" />
+                    <input type="hidden" name="subject" value="<%=subject%>" />
+                    
+                    <button class='arrow' type="submit"><div> <p><i class="fa-solid fa-folder fa-2xl" style="color:#1776FF;" ></i><p>
+                            <h2><%=subject%></h2></div></button>
+                 </form>
+
+               
+              
+           
+                 
+        </div>
+            <!--<img src="https://img.icons8.com/ios-filled/256/circled-chevron-right.png" class="fade-in">-->
+       
+      
+     
+                    <%}%>
+                      </div>
+                     </div>
+                <%
+     
+   
+      }
+        catch (ClassNotFoundException | SQLException e2)
+        {
+            e2.printStackTrace ();
+        }
+        finally
+        {
+            out.close ();
+        }
+
+
+        %>
+       
+    </body>
+    <script>
+        const image = document.querySelector('.fade-in');
+image.addEventListener('load', () => {
+  image.classList.add('show');
+});
+
+        </script>
+</html>
+
