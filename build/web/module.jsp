@@ -33,7 +33,7 @@
         </div>
         <div class='card module-card'>
          
-                <form action="retrieve-files" method="post">
+                <form action="retrieve.jsp" method="post">
                     <input type="hidden" name="type" value="<%=type%>" />
                     <input type="hidden" name="subject" value="<%=sub%>" />
                     <input type="hidden" name="module" value="2" />
@@ -43,7 +43,7 @@
         </div>
         <div class='card module-card'>
          
-                <form action="retrieve-files" method="post">
+                <form action="retrieve.jsp" method="post">
                     <input type="hidden" name="type" value="<%=type%>" />
                     <input type="hidden" name="subject" value="<%=sub%>" />
                     <input type="hidden" name="module" value="3" />
@@ -53,7 +53,7 @@
         </div>   
         <div class='card module-card'>
          
-                <form action="retrieve-files" method="post">
+                <form action="retrieve.jsp" method="post">
                     <input type="hidden" name="type" value="<%=type%>" />
                     <input type="hidden" name="subject" value="<%=sub%>" />
                     <input type="hidden" name="module" value="4" />
@@ -63,7 +63,7 @@
         </div>
         <div class='card module-card'>
          
-                <form action="retrieve-files" method="post">
+                <form action="retrieve.jsp" method="post">
                     <input type="hidden" name="type" value="<%=type%>" />
                     <input type="hidden" name="subject" value="<%=sub%>" />
                     <input type="hidden" name="module" value="5" />

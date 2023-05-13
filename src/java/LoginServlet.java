@@ -26,6 +26,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     String username = request.getParameter("username");
     String password = request.getParameter("password");
    
+String operation = request.getParameter("operation");
 
     try {
         // Connect to the database
@@ -33,6 +34,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
 
         // Prepare the SQL query to retrieve the user with the given username and password
+        if(operation.equals("login")){
         String sql = "SELECT * FROM login WHERE username = ? AND password = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, username);
@@ -57,11 +59,17 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 //            request.setAttribute("errorMessage", "<p>Invalid username or password<p>");
 //            
 //            request.getRequestDispatcher("login.jsp").forward(request, response);
-//            
+    
         }
-
         result.close();
-        statement.close();
+        statement.close(); 
+        }else if(operation.equals("logout")){
+                 request.getSession().invalidate();
+    
+    // Redirect the user to the login page or any other desired destination
+                response.sendRedirect("index.jsp");
+            }
+       
         conn.close();
     } catch (ClassNotFoundException | SQLException ex) {
         ex.printStackTrace();

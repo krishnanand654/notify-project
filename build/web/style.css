@@ -56,7 +56,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 
 .profile-logo{
-    background:rgba(55, 53, 47, 0.09);
+    background:rgb(137 137 137 / 23%);
     
     padding:2px 10px 5px;
     margin:0 10px 0;
@@ -209,6 +209,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 
 .card-con h2{
+    color:white;
     font-size:18px;
 }
 
@@ -256,15 +257,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 .view-ctn{
+    color:white;
     margin:0 20px 0;
 }
 
-.view-heading, .view-heading p{
+.view-ctn .view-desc{
+    width:250px;
+}
+
+.view-heading{
     margin:20px 0 20px;
 }
 
+
+.view-heading p{
+      color:#8F9195;
+      font-size:14px;
+      margin:5px 0 0;
+}
 .view-heading .cn{
-    color:rgba(25, 23, 17, 0.6);
+  
+    
+    
     font-weight: 500;
 }
 
@@ -411,7 +425,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .top-links{
     margin:20px 20px 20px;
-    
+   
     display: flex;
     border-radius:5px;
     background:#1E1F23;
@@ -445,7 +459,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 .mag-ctn{
-    margin-left:240px;
+    
 }
 
 .mag-ctn h1{
@@ -704,8 +718,13 @@ textarea{
 
 
 ::-webkit-input-placeholder {
-  
+ 
 }
+
+::-webkit-scrollbar{
+    display:none;
+}
+
 
 input[type="file"]::file-selector-button {
     color:white;
@@ -957,6 +976,7 @@ upload-container{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -992,17 +1012,26 @@ upload-container{
     
     border:1px solid #434343;
     border-radius:5px;
-    width:250px;
+    width:200px;
+   
     height:30px;
-    background:#0D1117;
+    background:#26272D;;
     padding: 0 5px 0;
     color:white;
 }
 
+.search-box{
+    margin-top:10px;
+    margin-left:20px;
+}
+.search-box form{
+    height:50px;
+}
+
 .search-btn{
     position:relative;
-   left:-45px;
-    top:-3px;
+   left:160px;
+    top:-35px;
 }
 
 table{
@@ -1306,6 +1335,10 @@ table{
     font-size:18px;
 }
 
+.view-card p{
+    font-size:14px;
+}
+
 .view-window{
     padding:100px 0 0;
    display:flex;
@@ -1395,3 +1428,6 @@ table{
  .hidden {
       display: none;
     }
+    
+    
+    

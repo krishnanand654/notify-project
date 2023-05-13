@@ -23,7 +23,7 @@
                            <input type="password" id="form2Example2"   name="password" class="form-control" />
     
                     </div>
-                    <input type="submit" class="btn btn-dark login-btn " value="Login"/>
+                    <input type="submit" name="operation" class="btn btn-dark login-btn " value="login"/>
                 </form>
                  <div>
                 <img class='login-img' src="file/Frame2.svg"/>

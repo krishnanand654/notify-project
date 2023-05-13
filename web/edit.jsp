@@ -63,7 +63,7 @@
           
 
                 <div id="drop-zone">Drop files here</div>
-                       <input class='filefrm' type="file" name="file" id="file-input"/>
+                       <input class='filefrm' type="file" name="file"  id="file-input"/>
                
             <textarea type='text' class='desc-area' name='upfdesc' value="<%=desc%>"/><%=desc%></textarea>
             
