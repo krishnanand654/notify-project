@@ -6,16 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*,java.time.format.DateTimeFormatter,java.time.LocalDate" %>
-
+<%@ include file="dbconnection.jsp" %>
 <%@ include file="/navbar.jsp" %>
 
 
            
 <%
-  String dbUrl = "jdbc:mysql://localhost:3306/test";
-  String dbUser = "root";
-  String dbPassword = "root";
-  String query = "SELECT * FROM posts p, login l where p.by = l.id order by currdate desc;";
+ 
+  String query = "SELECT * FROM posts p, login l where p.by = l.id order by p.id desc;";
  
   String uid = (String) session.getAttribute("userid");
 
@@ -24,7 +22,7 @@
   try {
     // Connect to the database and execute the query
     Class.forName("com.mysql.jdbc.Driver");
-    Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+    
     Statement stmt = conn.createStatement();
     
    
@@ -49,6 +47,19 @@
           <head>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
                <link rel="stylesheet" href="style.css"/>
+                <style>
+    /* Define the animation */
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Apply the animation to the body element */
+    body {
+      animation: fade-in 0.8s ease-in;
+    }
+  </style>
+ 
                <script>
                 function toggleInputField() {
                   var inputContainer = document.getElementById('inputContainer');
@@ -63,9 +74,12 @@
               </script>
           </head>
           <body class="main" >
+              
+
           <div class="a">
             <div class="b">
                <div class="uploadfrm">
+                   
                <form action ="TestServlet" method="POST" enctype="multipart/form-data">
               
                   <div class='top-upload'>
@@ -103,7 +117,7 @@
 
             <div class='mag-ctn'>
               <div class='top-line'>
-                    
+                 
                 </div>
                   <% 
                         if (session.getAttribute("recordAdded") != null) { %>
@@ -203,7 +217,7 @@
                                 <%}%> 
                                 
                                 
-                                <% if(videoLink != null){%>
+                                <% if(videoId != ""){%>
                                    <p class='post-desc'><%=desc%><br><br><span class='post-link'><%=videoLink%></span></p>
                                     <%}else{%>
                                     <p class='post-desc'><%=desc%>  </p>

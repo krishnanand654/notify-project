@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ include file="/navbar.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,9 +31,7 @@
    
 
   try {
-   RequestDispatcher sidebar = request.getRequestDispatcher("sidebar.jsp");
-    sidebar.include(request, response);
-
+ 
     // Connect to the database and execute the query
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -62,8 +61,8 @@
           
           
 
-                <div id="drop-zone">Drop files here</div>
-                       <input class='filefrm' type="file" name="file"  id="file-input"/>
+<!--                <div id="drop-zone">Drop files here</div>
+                       <input class='filefrm' type="file" name="file"  id="file-input"/>-->
                
             <textarea type='text' class='desc-area' name='upfdesc' value="<%=desc%>"/><%=desc%></textarea>
             

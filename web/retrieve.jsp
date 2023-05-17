@@ -77,10 +77,14 @@ window.onclick = function(event) {
             Class.forName ("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/test", "root", "root");
             PreparedStatement ps ;
-            if(sub != null){
-                ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"' and subject='"+sub+"' and module='"+mod+"'");
+            if(type!=null && sub!=null){
+            ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"'and subject='"+sub+"'");
+               
+            }else if(sub==null & mod==null){
+             ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"'");
+               
             }else{
-                ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"'");
+                 ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"' and subject='"+sub+"' and module='"+mod+"'");
             }
               
             
@@ -131,7 +135,7 @@ window.onclick = function(event) {
 
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" style="cursor:pointer;">&times;</span>
         <iframe id="modalFrame" src="" width="100%" height="400px"></iframe>
     </div>
 </div>

@@ -34,12 +34,13 @@ public class TestServlet extends HttpServlet {
         String rdesc = request.getParameter("rdesc");
         
         String subname = request.getParameter("subname");
-
+        String stype = request.getParameter("stype");
       
         String sub = request.getParameter("subject");
         String des = request.getParameter("desc");
         String type = request.getParameter("type");
         String mod = request.getParameter("mod");
+        
         
         String phead = request.getParameter("phead");
         String plink = request.getParameter("plink");
@@ -129,7 +130,7 @@ public class TestServlet extends HttpServlet {
                         
                           RequestDispatcher successbox = request.getRequestDispatcher("test.html");
                         successbox.include(request, response);
-                   
+                        
 //                        
 //                        out.println("Requested successfully!");
                         
@@ -142,27 +143,20 @@ public class TestServlet extends HttpServlet {
                          }   }
             conn.close();
             }else if(operation.equals("subjectinsert")){
-                 String sql = "INSERT INTO subjects (`subname`,`date`,`by`) VALUES (?,?,?)";
+                 String sql = "INSERT INTO subjects (`subname`,`date`,`by`,`stype`) VALUES (?,?,?,?)";
                 try (PreparedStatement statement = conn.prepareStatement(sql)) {
-                    statement.setString(1, subname);
-                   
+                    statement.setString(1, subname);  
                     statement.setString(2, formattedDate);
                     statement.setString(3, userid);
-                    
+                    statement.setString(4, stype);
                     int rowsInserted = statement.executeUpdate();
                     if (rowsInserted > 0) {
-                        
-                       
-                        
-                      
-                      
+                            
                        RequestDispatcher successbox = request.getRequestDispatcher("test.html");
                         successbox.include(request, response);
-                   
-
-                      
-
-                         }   }
+            
+                         }   
+                }
             conn.close();
         }else if(operation.equals("register")){
            String uname = request.getParameter("username");       
@@ -186,10 +180,7 @@ public class TestServlet extends HttpServlet {
             }
             
         }else if(operation.equals("update")){
-            Part filePart = request.getPart("file");
-                    String fileName = filePart.getSubmittedFileName();
-                    InputStream fileContent = filePart.getInputStream();
-                    
+          
         String upfid = request.getParameter("upfid");       
         String upfname = request.getParameter("upfname");
         String upfdesc = request.getParameter("upfdesc");
@@ -197,18 +188,16 @@ public class TestServlet extends HttpServlet {
         String upfsubject = request.getParameter("upfsubject");
         String upfmod = request.getParameter("upfmod");
         
-           byte[] bytes = fileContent.readAllBytes();
-
+        
 // Use PreparedStatement and set the byte array as a parameter
-String sql = "update users SET `name`=?, content=?, `desc`=?, `type`=?, `subject`=?, `module`=? where `id`=?";
+String sql = "update users SET  `desc`=?, `type`=?, `subject`=?, `module`=? where `id`=?";
 try (PreparedStatement statement = conn.prepareStatement(sql)) {
-    statement.setString(1, fileName);
-    statement.setBytes(2, bytes);
-    statement.setString(3, upfdesc);
-    statement.setString(4, upftype);
-    statement.setString(5, upfsubject);
-    statement.setString(6, upfmod);
-    statement.setString(7, upfid);
+   
+    statement.setString(1, upfdesc);
+    statement.setString(2, upftype);
+    statement.setString(3, upfsubject);
+    statement.setString(4, upfmod);
+    statement.setString(5, upfid);
     
     
     int rowsUpdated = statement.executeUpdate();
@@ -241,7 +230,7 @@ try (PreparedStatement statement = conn.prepareStatement(sql)) {
             String operation = request.getParameter("operation");
             if (operation == null) {
                 out.println("null");
-            }else if (operation.equals("delete")) {
+            }else if (operation.equals("deletenote")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String sql = "DELETE FROM users WHERE id=?";
                 PreparedStatement statement = conn.prepareStatement(sql);
@@ -252,7 +241,19 @@ try (PreparedStatement statement = conn.prepareStatement(sql)) {
 //                out.println(rowsAffected + " row(s) deleted.");
                 response.sendRedirect("profile?row(s) deleted.");
                           
+                    }else if (operation.equals("deletepost")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                String sql = "DELETE FROM posts WHERE id=?";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setInt(1, id);
+                
+                
+                int rowsAffected = statement.executeUpdate();
+//                out.println(rowsAffected + " row(s) deleted.");
+                response.sendRedirect("profile?row(s) deleted.");
+                          
                     }
+            
             conn.close();
             
         } catch (ClassNotFoundException |   SQLException e) {

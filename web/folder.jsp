@@ -6,7 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ include file="dbconnection.jsp" %>
 <%@  include file="navbar.jsp" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -22,15 +24,10 @@
          <div class="folder">
             <h1>Theory</h1>
              <div class="card-flex">
+                 <div style="display:flex; flex-wrap:wrap">
         <% 
-          
-            
-            
-                 
-            String dbUrl = "jdbc:mysql://localhost:3306/test";
-            String dbUser = "root";
-            String dbPassword = "root";
-            String query = "select * from subjects";
+
+            String query = "select * from subjects where stype='theory'";
            
             
             try {
@@ -38,7 +35,7 @@
 
                 // Connect to the database and execute the query
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+                
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
 
@@ -84,11 +81,53 @@
         </div>
             <!--<img src="https://img.icons8.com/ios-filled/256/circled-chevron-right.png" class="fade-in">-->
        
-      
      
+     
+                    <%}
+                    String lquery = "select * from subjects where stype='lab'";
+                  
+                    ResultSet lrs = stmt.executeQuery(lquery);
+%>
+ </div>
+ <div>
+<h1>Lab</h1>
+<div style="display:flex; flex-wrap:wrap" >
+<%
+                      while (lrs.next()) {
+                
+                 String subject = lrs.getString("subname");     
+                
+                    %>
+                    
+                    <div class='card'>
+                
+                <div class='card-content'>
+                   
+                    
+                </div>
+                <form action="retrieve.jsp" method="get">
+                    <input type="hidden" name="type" value="lab" />
+                    
+                     <input type="hidden" name="subject" value="<%=subject%>" />
+                    <button class='arrow' type="submit"><div> <p><i class="fa-solid fa-folder fa-2xl" style="color:#1776FF;" ></i><p>
+                            <h2><%=subject%> lab</h2></div></button>
+                 </form>
+
+               
+              
+           
+                 
+        </div>
+                    
                     <%}%>
+</div>
+                    </div>
                       </div>
                      </div>
+                      
+                      
+                      
+                      
                 <%
      
    

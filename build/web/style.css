@@ -468,19 +468,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .home-flex2{
      align-items:start;
-   
     display:flex;
     flex-direction: column;
     align-content: center;
-    
-    
-     
-    
     text-align: left;
-   
-    
-   
- 
     text-align: left;
     width:65vw;
     
@@ -613,14 +604,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     display:flex;
     align-items: center;
     justify-content: space-between;
-    height:60vh;
+    height:80vh;
     
 }
 
 .login-img{
-    margin:172px 0 0 ;
+    margin:28px 0 0 ;
     width:auto;
-    
     border-radius:0 10px 10px 0;
     height:600px;
 }
@@ -660,10 +650,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .post-desc{
     width:700px;
     font-size:14px; 
-     text-align: justify;
-  text-justify: inter-word;
-  margin:20px 30px 0;
-  color:#C4C5CB;
+    text-align: justify;
+    text-justify: inter-word;
+    margin:20px 30px 0;
+    color:#C4C5CB;
 }
 
 .date{
@@ -676,7 +666,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .home-flex3{
     margin:20px 20px 0;
     border-radius: 10px;
-/*      border: 1px solid #434343;*/
     background:#151C25;
     display:flex;
     width:80%;
@@ -791,7 +780,7 @@ input[type="file"]::file-selector-button {
     
 }*/
 
-.main, .view-body{
+.main, .view-body, .req-body{
     background:#010409;
     color:white;
     
@@ -819,7 +808,6 @@ input[type="file"]::file-selector-button {
     margin:15px 10px 0;
     height:30px;
     width:600px;
-   
      border:none;
      resize: none;
      font-size:14px;
@@ -916,13 +904,12 @@ upload-container{
     display: flex;
     justify-content: center;
     height:100vh;
-    
     flex-direction: column;
 }
 
 
 .edit-ctn{
-    padding: 40px 300px 0;
+    padding: 90px 300px 0;
     background:#010409;
     height:100vh;
 }
@@ -963,9 +950,7 @@ upload-container{
 }
 
 .footer-flex p{
-   
     color:grey;
-    
 }
 
 
@@ -1319,6 +1304,8 @@ table{
     
 }
 
+
+
 .view-card{
     display:flex;
     align-items: center;
@@ -1425,9 +1412,52 @@ table{
 }
 
 
+.auth-fail{
+    color:red;
+    font-size:14px;
+    font-weight:500;
+    transition-delay: ease-in-out 0.8s;
+    padding: 10px 0 0;
+}
+
  .hidden {
       display: none;
     }
     
+.req-ctn{
+    padding-top:100px;
+    width:72vw;
+    margin-left:320px;
+}
+
+.custom-bg-color {
+    background-color: #0D1117 !important; /* Replace with your desired background color */
+    border:1px solid #26272D !important;
+    color:white !important;
     
-    
+  }
+  
+  .custom-bg-color p{
+      padding-top:10px;
+      padding-left:50px;
+  }
+  
+  .custom-bg-color:hover{
+      background-color: #007bff !important;
+  }
+  
+  .req-reply{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  .custom-bg-color p .lang{
+        padding-left:50px;
+  }
+  
+  .tab-ctn{
+      width:79vw;
+      margin:0 270px 0;
+  }
+  

@@ -24,6 +24,18 @@
     
                     </div>
                     <input type="submit" name="operation" class="btn btn-dark login-btn " value="login"/>
+                    <a href="register.html" class="btn btn-dark login-btn " />Join Now</a>
+                     <%if(request.getParameter("message")==null){
+                     %>
+                     <p></p>
+                     <%
+                         }else{
+                     %>
+                             <p class='auth-fail'><%= request.getParameter("message")  %></p>
+
+                     <%
+                         }
+                      %>
                 </form>
                  <div>
                 <img class='login-img' src="file/Frame2.svg"/>

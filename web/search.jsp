@@ -64,8 +64,10 @@
   
                 <%
                 }while (rs.next());
-                }else{
-                    out.print("no data");
+                }else{%>
+                
+                <div class='no-note-ctn' style="padding-left:520px;"><div class='no-note'><i class="fa-solid fa-face-sad-cry fa-2xl" style="color: #334a70;"></i><p>No Data</p></div></div>
+                   <%
                 }
                 rs.close();
                 stmt.close();

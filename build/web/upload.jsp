@@ -83,6 +83,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                      <option selected >select type</option>
                     <option value="note">Note</option>
                 <option value="assignment">Assignment</option>
+                <option value="lab">Lab</option>
                 </select>
               
               <select name='mod' class='select-btn'>
