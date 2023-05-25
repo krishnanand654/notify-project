@@ -9,7 +9,8 @@ import jakarta.servlet.http.Part;
 import jakarta.servlet.annotation.MultipartConfig;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-
+import java.sql.ResultSet;
+import jakarta.servlet.RequestDispatcher;
 @MultipartConfig
 public class TestServlet extends HttpServlet {
   @Override
@@ -143,20 +144,35 @@ public class TestServlet extends HttpServlet {
                          }   }
             conn.close();
             }else if(operation.equals("subjectinsert")){
-                 String sql = "INSERT INTO subjects (`subname`,`date`,`by`,`stype`) VALUES (?,?,?,?)";
-                try (PreparedStatement statement = conn.prepareStatement(sql)) {
-                    statement.setString(1, subname);  
-                    statement.setString(2, formattedDate);
-                    statement.setString(3, userid);
-                    statement.setString(4, stype);
-                    int rowsInserted = statement.executeUpdate();
-                    if (rowsInserted > 0) {
-                            
-                       RequestDispatcher successbox = request.getRequestDispatcher("test.html");
-                        successbox.include(request, response);
-            
-                         }   
-                }
+             String sql = "SELECT stype FROM subjects WHERE subname = ? and stype=?";
+try (PreparedStatement checkStatement = conn.prepareStatement(sql)) {
+    checkStatement.setString(1, subname);
+    checkStatement.setString(2, stype);
+    ResultSet resultSet = checkStatement.executeQuery();
+    if (resultSet.next()) {
+        String existingType = resultSet.getString("stype");
+        if (existingType.equals(stype)) {
+            // Subject name and type already exist in the database, show error message
+            response.sendRedirect("error.html");
+        } else {
+            // Subject name exists with a different type, proceed with insertion
+            if (insertSubject(conn, subname, formattedDate, userid, stype) > 0) {
+                response.sendRedirect("test.html");
+            } else {
+                response.sendRedirect("errorInsert.html");
+            }
+        }
+    } else {
+        // Subject name doesn't exist, proceed with insertion
+        if (insertSubject(conn, subname, formattedDate, userid, stype) > 0) {
+            response.sendRedirect("test.html");
+        } else {
+            response.sendRedirect("errorInsert.html");
+        }
+    }
+}
+
+
             conn.close();
         }else if(operation.equals("register")){
            String uname = request.getParameter("username");       
@@ -174,7 +190,7 @@ public class TestServlet extends HttpServlet {
             
             int registered = stmt.executeUpdate();
             if(registered>0){
-                 RequestDispatcher successbox = request.getRequestDispatcher("test.html");
+                 RequestDispatcher successbox = request.getRequestDispatcher("index.jsp");
                         successbox.include(request, response);
                    
             }
@@ -212,8 +228,20 @@ try (PreparedStatement statement = conn.prepareStatement(sql)) {
             out.println("Error: " + e.getMessage());
         }
     }
-   
-
+  
+  private int insertSubject(Connection conn, String subname, String formattedDate, String userid, String stype) {
+    String insertSql = "INSERT INTO subjects (`subname`,`date`,`by`,`stype`) VALUES (?,?,?,?)";
+    try (PreparedStatement insertStatement = conn.prepareStatement(insertSql)) {
+        insertStatement.setString(1, subname);
+        insertStatement.setString(2, formattedDate);
+        insertStatement.setString(3, userid);
+        insertStatement.setString(4, stype);
+        return insertStatement.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return 0;
+    }
+}
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

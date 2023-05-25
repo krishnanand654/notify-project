@@ -22,7 +22,12 @@
      
     <body class='folder-body'>
          <div class="folder">
-            <h1>Theory</h1>
+             <div style="display:flex;flex-direction: row; align-items: center; justify-content: space-between;">
+            <h1>Theory</h1> 
+                <div >
+                    <a  style="color:#669eff;cursor:pointer;" onclick="showForm4()" ><i class="fa-solid fa-plus icons-new" style="color:#669eff;"></i> New folder</a>
+                </div>
+             </div>
              <div class="card-flex">
                  <div style="display:flex; flex-wrap:wrap">
         <% 

@@ -87,7 +87,7 @@
           </div>
             <li id="navItem1"  ><a href="home.jsp"><i class="fa-solid fa-house icons" style="color: #8F9195;"></i>Home</a></li>
             <li id="navItem2"><a href="profile" ><i class="fa-solid fa-user icons" style="color: #8F9195;"></i>Profile</a></li>
-            <li id="navItem3"><a href="profile" ><i class="fa-solid fa-book icons" style="color: #8F9195;"></i>Works</a></li>
+<!--            <li id="navItem3"><a href="profile" ><i class="fa-solid fa-book icons" style="color: #8F9195;"></i>Works</a></li>-->
             
             
             

@@ -12,21 +12,28 @@
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/module.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/view.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/dbconnection.jsp</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/sidebar.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/TestServlet.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/reqhome.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/LoginServlet.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/HomeServlet.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/request.html</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/error.html</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/style.css</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/retrieve.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/edit.jsp</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/DBConnection.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/navbar.jsp</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/DownloadServlet.java</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/RetrieveFilesServlet.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/home.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/requestbar.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/index.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/upload.jsp</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/ViewServlet.java</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/src/java/ProfileServlet.java</file>
+            <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/upload.html</file>
             <file>file:/C:/Users/krish/OneDrive/Documents/NetBeansProjects/notify-project/web/subject.html</file>
         </group>
     </open-files>
