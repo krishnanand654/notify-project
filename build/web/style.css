@@ -621,10 +621,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-radius: 3px;
     margin: 0 0 10px;
     height: 40px;
+    color:white !important;
+    
 }
 .form-input[type="text"]:focus, .form-input[type="password"]:focus{
     background-color: #212121;
- 
+ color:white !important;
 }
 
 
@@ -1487,7 +1489,7 @@ table{
   
   .tab-ctn{
       width:79vw;
-      margin:0 270px 0;
+      margin:-140px 230px 0;
   }
   
   .error-body{

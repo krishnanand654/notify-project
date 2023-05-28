@@ -30,11 +30,12 @@ public class ProfileServlet extends HttpServlet
             PreparedStatement ps =con.prepareStatement ("select * from users u, login l where u.author=l.id and l.id="+userid);
          
             out.println("<html><head><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css\" integrity=\"sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65\" crossorigin=\"anonymous\"></head><body class='profile-body'>");
-            // Use the username to display a personalized message or perform other actions
+          
            if(userid !=null) {
                 
             out.println("<div class='home-container'>");
-            out.print ("<table class='table table-dark' width=50% border=1>");
+             
+            out.print ("<h3 style='padding:100px 0 20px; color:white;'>Notes</h3><table style='margin:-50px 0 0;' class='table table-dark' width=50% border=1>");
            
 
             ResultSet rs = ps.executeQuery ();
@@ -67,7 +68,7 @@ public class ProfileServlet extends HttpServlet
             
             
             PreparedStatement ps1 =con.prepareStatement ("select * from posts p, login l where p.by=l.id and l.id="+userid);
-             out.print ("<div class='tab-ctn'><table class='table table-dark table-post .table-responsive-sm'  border=1>");
+             out.print ("<h3 style='margin:40px 250px 20px;color:white;'>Posts</h3><div class='tab-ctn'><table class='table table-dark table-post .table-responsive-sm'  border=1>");
            
 
             ResultSet rs1 = ps1.executeQuery ();

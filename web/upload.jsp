@@ -59,7 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
            
             
              <textarea class='desc-area' type="text" name="desc" placeholder="Share your knowledge"/></textarea>
-            <div id="drop-zone">Drop files here</div>
+            <div id="drop-zone">Drop files here (.pdf, .jpg, .jpeg, .docx)</div>
             <label for="file-input">
                                 <i class="fa-solid fa-paperclip" style='color:#A8A8A8;'"></i>
                         </label>
