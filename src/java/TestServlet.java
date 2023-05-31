@@ -175,25 +175,39 @@ try (PreparedStatement checkStatement = conn.prepareStatement(sql)) {
 
             conn.close();
         }else if(operation.equals("register")){
-           String uname = request.getParameter("username");       
-           String pass = request.getParameter("password");       
-           Part filePart = request.getPart("profileImage");
-           InputStream fileContent = filePart.getInputStream();
-            byte[] imageData = fileContent.readAllBytes();
-            String sqlreg = "INSERT INTO login ( `username`,`password`, `image`) VALUES ( ?, ?, ?)";
-            PreparedStatement stmt = conn.prepareStatement(sqlreg);
-             
-            stmt.setString(1, uname); // Replace userId with the actual user ID
-            stmt.setString(2, pass);
-            stmt.setBytes(3, imageData);
-            stmt.executeUpdate();
-            
-            int registered = stmt.executeUpdate();
-            if(registered>0){
-                 RequestDispatcher successbox = request.getRequestDispatcher("index.jsp");
-                        successbox.include(request, response);
-                   
-            }
+           String uname = request.getParameter("username");
+String pass = request.getParameter("password");
+Part filePart = request.getPart("profileImage");
+InputStream fileContent = filePart.getInputStream();
+byte[] imageData = fileContent.readAllBytes();
+
+// Check if the user already exists
+String checkUserQuery = "SELECT COUNT(*) FROM login WHERE username = ?";
+PreparedStatement checkUserStmt = conn.prepareStatement(checkUserQuery);
+checkUserStmt.setString(1, uname);
+ResultSet result = checkUserStmt.executeQuery();
+result.next();
+int count = result.getInt(1);
+
+if (count > 0) {
+    // User already exists, handle the case accordingly (e.g., show an error message)
+     response.sendRedirect("register.jsp?regmessage='user already exist'");
+    
+} else {
+    // User does not exist, proceed with registration
+    String sqlreg = "INSERT INTO login (username, password, image) VALUES (?, ?, ?)";
+    PreparedStatement stmt = conn.prepareStatement(sqlreg);
+    stmt.setString(1, uname);
+    stmt.setString(2, pass);
+    stmt.setBytes(3, imageData);
+    int registered = stmt.executeUpdate();
+    
+    if (registered > 0) {
+        RequestDispatcher successbox = request.getRequestDispatcher("index.jsp");
+        successbox.include(request, response);
+    }
+}
+
             
         }else if(operation.equals("update")){
           
@@ -267,7 +281,7 @@ try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 
                 int rowsAffected = statement.executeUpdate();
 //                out.println(rowsAffected + " row(s) deleted.");
-                response.sendRedirect("profile?row(s) deleted.");
+                response.sendRedirect("profile.jsp?row(s) deleted.");
                           
                     }else if (operation.equals("deletepost")) {
                 int id = Integer.parseInt(request.getParameter("id"));
@@ -278,7 +292,18 @@ try (PreparedStatement statement = conn.prepareStatement(sql)) {
                 
                 int rowsAffected = statement.executeUpdate();
 //                out.println(rowsAffected + " row(s) deleted.");
-                response.sendRedirect("profile?row(s) deleted.");
+                response.sendRedirect("profile.jsp?row(s) deleted.");
+                          
+                    }else if (operation.equals("deleterequest")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                String sql = "DELETE FROM requests WHERE id=?";
+                PreparedStatement statement = conn.prepareStatement(sql);
+                statement.setInt(1, id);
+                
+                
+                int rowsAffected = statement.executeUpdate();
+//                out.println(rowsAffected + " row(s) deleted.");
+                response.sendRedirect("profile.jsp?row(s) deleted.");
                           
                     }
             

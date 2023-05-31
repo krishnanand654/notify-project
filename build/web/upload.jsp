@@ -63,12 +63,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <label for="file-input">
                                 <i class="fa-solid fa-paperclip" style='color:#A8A8A8;'"></i>
                         </label>
-            <input class='filefrm' type="file" name="file" id="file-input"/>
+            <input class='filefrm' type="file" name="file" id="file-input" />
             
             
             <div>
                 
-                 <select name="subject" class='select-btn'>
+                 <select name="subject" class='select-btn'required>
                  <option>select subject</option>
                  <%
     while (rs.next()) {
@@ -79,14 +79,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <%}%>
               </select>
                
-                <select name='type' class='select-btn'>
+                <select name='type' class='select-btn' required>
                      <option selected >select type</option>
                     <option value="note">Note</option>
                 <option value="assignment">Assignment</option>
                 <option value="lab">Lab</option>
                 </select>
               
-              <select name='mod' class='select-btn'>
+              <select name='mod' class='select-btn' required>
                      <option selected >select module</option>
                     <option value="1">Module 1</option>
                 <option value="2">Module 2</option>

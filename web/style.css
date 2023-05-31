@@ -110,7 +110,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     background: #010409;
 }
 
-.home-container, .home-container3{
+.home-container{
+   
+    margin-left : 270px;
+    width:80%;
+}
+
+ .home-container3{
 
    
     margin-left : 250px;
@@ -1489,7 +1495,7 @@ table{
   
   .tab-ctn{
       width:79vw;
-      margin:-140px 230px 0;
+      margin:-140px -15px 0;
   }
   
   .error-body{
@@ -1520,4 +1526,31 @@ table{
   
     .error-ctn .S{
       font-size:40px;
+  }
+  
+  .profile-card{
+      display:flex;
+      align-items: center;
+      flex-direction: column;
+      width:80%;
+      margin-left:270px;
+      padding:  100px 0 50px;
+      border-bottom:1px solid #5F5F5F;  
+  }
+  
+  
+  
+  .prof-dp{
+     width:300px;
+    height:300px;
+    border-radius:100%;
+    margin-right:10px;
+    object-fit: cover;
+ image-rendering: crisp-edges;
+  }
+  
+  .profile-card h2{
+      padding:30px 0 0;
+      color:white;
+      text-align: center;
   }

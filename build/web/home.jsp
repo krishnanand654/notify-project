@@ -21,7 +21,7 @@
 
   try {
     // Connect to the database and execute the query
-    Class.forName("com.mysql.jdbc.Driver");
+   
     
     Statement stmt = conn.createStatement();
     
@@ -98,7 +98,7 @@
          out.println("<img class='dp' src=\"data:image/*;base64," + base64Image + "\">");
     }
 %>
-                    <textarea class='desc-area' type="text" name="pdesc" placeholder="Share your knowledge.."/></textarea>
+                    <textarea class='desc-area' type="text" name="pdesc" required placeholder="Share your knowledge.."/></textarea>
                       </div>
                     <div class="link-area">
                       <label for="file-input">
@@ -248,7 +248,7 @@
 
                <%
               }
-              String query1 = "SELECT * FROM requests r, login l where r.requestby = l.id order by currdate desc LIMIT 4 ;";
+              String query1 = "SELECT * FROM requests r, login l where r.requestby = l.id order by r.id desc LIMIT 4 ;";
                 ResultSet rs1 = stmt.executeQuery(query1);
                     
 

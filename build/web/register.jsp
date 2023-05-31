@@ -1,11 +1,15 @@
+<%-- 
+    Document   : register.jsp
+    Created on : May 31, 2023, 3:59:15 PM
+    Author     : krish
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
+
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Notify</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css"/>
@@ -28,6 +32,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <div class='ctn'>
         <div class="main-ctn">
             <div class='form-ctn'>  
+                
                 <form action="TestServlet" method="post" enctype="multipart/form-data" >
                     <img class='logo' src="file/logo.svg"  />
                     
@@ -39,17 +44,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <div class="form-group">
                         
                       <label class="form-label form-cp" for="form2Example1">Username</label>
-                        <input type="text" id="form2Example1" name="username" class="form-control form-input" />
+                        <input type="text" id="form2Example1" name="username" required class="form-control form-input" />
                     </div>
                     
                     <div class="form-group ">
                          <label class="form-label form-cp" for="form2Example2">Password</label>
-                           <input type="password" id="form2Example2"   name="password" class="form-control form-input"/>
+                           <input type="password" id="form2Example2"   name="password" required class="form-control form-input"/>
     
                     </div>
+                     <%if(request.getParameter("regmessage")==null){
+                     %>
+                     <p></p>
+                     <%
+                         }else{
+                     %>
+                             <p class='auth-fail'><%= request.getParameter("regmessage")  %></p>
+
+                     <%
+                         }
+                      %>
                     <input type="submit" class="btn btn-dark login-btn " name="operation" value="register"/>
                     <a style="margin:20px 0 0;width:200px;" href="login.jsp" class='btn btn-dark'>Login</a>
+                    
                 </form>
+               
                  <div>
                 <img class='login-img' src="file/image.png"/>
             </div>
@@ -63,3 +81,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </div>
     </body>
 </html>
+
+

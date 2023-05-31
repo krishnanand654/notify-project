@@ -21,7 +21,7 @@
   String dbUrl = "jdbc:mysql://localhost:3306/test";
   String dbUser = "root";
   String dbPassword = "root";
-  String query = "SELECT * FROM requests r, login l where r.requestby = l.id order by currdate desc;";
+  String query = "SELECT * FROM requests r, login l where r.requestby = l.id order by r.id desc;";
   
   
    

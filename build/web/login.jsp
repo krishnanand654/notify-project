@@ -23,16 +23,16 @@
                     <div class="form-group">
                         
                       <label class="form-label form-cp" for="form2Example1">Username</label>
-                        <input type="text" id="form2Example1" name="username" class="form-control form-input" />
+                        <input type="text" id="form2Example1" name="username" required class="form-control form-input" />
                     </div>
                     
                     <div class="form-group">
                          <label class="form-label form-cp" for="form2Example2">Password</label>
-                           <input type="password" id="form2Example2"   name="password" class="form-control form-input" />
+                           <input type="password" id="form2Example2"  required  name="password" class="form-control form-input" />
     
                     </div>
                     <input type="submit" name="operation" class="btn btn-dark login-btn " value="login"/>
-                    <a href="register.html" class="btn btn-dark login-btn " />Join Now</a>
+                    <a href="register.jsp" class="btn btn-dark login-btn " />Join Now</a>
                      <%if(request.getParameter("message")==null){
                      %>
                      <p></p>
