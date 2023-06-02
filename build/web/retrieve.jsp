@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
 <%@ include file="/navbar.jsp" %>
+<%@ include file="dbconnection.jsp" %>
 
 <html>
     <head>
@@ -74,8 +75,8 @@ window.onclick = function(event) {
         
         try
         {
-            Class.forName ("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/test", "root", "root");
+           Connection con=conn;
+          
             PreparedStatement ps ;
             if(type!=null && sub!=null){
             ps = con.prepareStatement ("select * from users u, login l where u.author = l.id and type='"+type+"'and subject='"+sub+"'");
@@ -168,7 +169,7 @@ window.onclick = function(event) {
  }else{
                out.print("");
            }
-}catch (ClassNotFoundException | SQLException e2)
+}catch ( SQLException e2)
         {
             e2.printStackTrace ();
         }

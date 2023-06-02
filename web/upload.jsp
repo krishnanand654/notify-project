@@ -4,6 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
 -->
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ include file="dbconnection.jsp" %>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -25,9 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body >
         
         <%
-  String dbUrl = "jdbc:mysql://localhost:3306/test";
-  String dbUser = "root";
-  String dbPassword = "root";
+ 
   String query = "SELECT * FROM subjects";
   
   
@@ -35,8 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
   try {
     // Connect to the database and execute the query
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+   
     Statement stmt = conn.createStatement();
     ResultSet rs = stmt.executeQuery(query);
     if(conn == null){
@@ -140,7 +138,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     rs.close();
     stmt.close();
     conn.close();
-  } catch (ClassNotFoundException e) {
+  } catch (SQLException e) {
     e.printStackTrace();
   }
 %>

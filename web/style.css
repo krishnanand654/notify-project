@@ -296,7 +296,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 .att-ctn{
     margin:50px 0 0;
-    background: #dfdfdf;
+    border:1px solid rgb(48, 54, 61);
+    background:transparent;
     padding:10px;
     width:20%;
     border-radius: 5px;
@@ -1320,7 +1321,7 @@ table{
 .date-by-flex p{
     font-size:12px;
     font-weight: 500;
-    margin-right:20px;
+    margin-left:5px;
     padding: 2px 10px 2px;
     border-radius: 10px;
     background:#121D2F;
@@ -1337,8 +1338,8 @@ table{
 }
 
 .view-container{
-    margin-left:280px;
-    
+   
+    margin-right: 30px;
 }
 
 
@@ -1364,7 +1365,8 @@ table{
 }
 
 .view-window{
-    padding:100px 0 0;
+    padding-top:100px ;
+    padding-left: 280px;
    display:flex;
     flex-direction: row;
     flex-wrap:wrap;

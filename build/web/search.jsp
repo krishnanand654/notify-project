@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, java.util.*" %>
 <%@ include file="/navbar.jsp" %>
+<%@ include file="dbconnection.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,15 +19,12 @@
         <%
             String subjectName = request.getParameter("search");
             
-            String dbUrl = "jdbc:mysql://localhost:3306/test";
-            String dbUser = "root";
-            String dbPassword = "root";
+           
             String query = "SELECT * FROM users u LEFT JOIN login l ON u.author = l.id WHERE u.subject LIKE '"+subjectName+"%' OR u.type LIKE '"+subjectName+"%';";
 
             try {
               // Connect to the database and execute the query
-              Class.forName("com.mysql.jdbc.Driver");
-              Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            
               Statement stmt = conn.createStatement();
 
 
@@ -56,6 +54,8 @@
                     
                       <p><%=date%></p>
                   <p><%=by%></p>
+                   <p><a href= "download?id=<%= rs.getInt(1) %>" ><i class="fa-solid fa-eye" style='color:white;'></i></a></p>
+                    <p><a href= "download?id=<%= rs.getInt(1) %>&operation=download"><i class="fa-solid fa-cloud-arrow-down" style='color:white;' ></i></a>    </p>
                   </div>
                   
                   

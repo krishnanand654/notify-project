@@ -56,7 +56,7 @@
 
     /* Apply the animation to the body element */
     body {
-      animation: fade-in 0.8s ease-in;
+      animation: fade-in 0.2s ease-in;
     }
   </style>
  

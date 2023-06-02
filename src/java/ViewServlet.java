@@ -21,9 +21,9 @@ public class ViewServlet extends HttpServlet
         out.print("<html><head><link rel='stylesheet' type='text/css' href='style.css'></head><body class='split'>");
         
         response.setContentType ("text/html");
-        RequestDispatcher sidebar = request.getRequestDispatcher("sidebar.jsp");
+        RequestDispatcher navbar = request.getRequestDispatcher("navbar.jsp");
          
-        sidebar.include(request, response);
+        navbar.include(request, response);
         
   
      
@@ -62,10 +62,10 @@ public class ViewServlet extends HttpServlet
                              + "<p class='desc'>" +  rs.getString ("desc") + "</p>"
                                      
                              + "<div class='att-ctn'>"
-                                     + "<p><i class=\"fa-solid fa-file\" style='color:rgba(25, 23, 17, 0.6)'></i> "+  rs.getString (2) + "</p>"
+                                     + "<p><i class=\"fa-solid fa-file\" style='color:white'></i> "+  rs.getString (2) + "</p>"
                                         + "<div class='btn-ctn'>"
-                                                     + "<a href= download?id="+ rs.getInt(1)  +"><i class=\"fa-solid fa-eye\" style='color:rgba(25, 23, 17, 0.6)'></i></a>"
-                                                     +"<a href= download?id="+ rs.getInt(1)  +"&operation=download><i class=\"fa-solid fa-cloud-arrow-down\" style='margin:0 10px 0; color:rgba(25, 23, 17, 0.6)'></i></a>"
+                                                     + "<a href= download?id="+ rs.getInt(1)  +"><i class=\"fa-solid fa-eye\" style='color:white'></i></a>"
+                                                     +"<a href= download?id="+ rs.getInt(1)  +"&operation=download><i class=\"fa-solid fa-cloud-arrow-down\" style='margin:0 10px 0; color:white'></i></a>"
                                                      
                                         + "</div>"
                                 + "</div></div>");
